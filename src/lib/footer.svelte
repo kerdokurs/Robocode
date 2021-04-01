@@ -4,8 +4,8 @@
       <div>
         <img src="/img/logo_tekstiga-valge.png" alt="" />
       </div>
-      <div class="text-center">MITS INFO</div>
-      <div class="text-center">MITS LINK</div>
+      <div>MITS INFO</div>
+      <div>MITS LINK</div>
       <div>
         <img
           src="https://praktikakohvik.ituk.ee/static/37b7551d24e3cc72853394dfa8025fc1/ituktaltechlogo.svg"
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="w-full md:w-3/5 mt-4 border-t border-white text-center text-md">
-    <p class="mt-2">&copy; MITS & ITÜK {new Date().getFullYear()}.</p>
+    <p class="mt-2 mb-2">&copy; MITS & ITÜK {new Date().getFullYear()}.</p>
   </div>
 </footer>
 
