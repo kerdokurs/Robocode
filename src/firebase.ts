@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBf4sLDxhBSeEM0YfZfdnSAotRHlCkjvL8',
@@ -16,4 +17,6 @@ if (firebase.apps.length == 0) firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 const serverTimeStamp = firebase.firestore.FieldValue.serverTimestamp;
 
-export { firestore, serverTimeStamp };
+const RecaptchaVerifier = firebase.auth.RecaptchaVerifier;
+
+export { firestore, serverTimeStamp, RecaptchaVerifier };

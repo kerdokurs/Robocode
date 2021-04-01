@@ -9,6 +9,7 @@ module.exports = {
     '@snowpack/plugin-dotenv',
     '@snowpack/plugin-typescript',
     '@snowpack/plugin-postcss',
+    '@snowpack/plugin-sass',
   ],
   routes: [{ match: 'routes', src: '.*', dest: '/index.html' }],
   optimize: {
