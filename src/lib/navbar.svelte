@@ -5,14 +5,14 @@
   let extended = false;
 </script>
 
-<nav class="flex items-center w-full px-14 bg-gray-900 text-white">
+<nav class="flex items-center w-full px-2 md:px-14 bg-gray-900 text-white">
   <Link to="/" class="p-2 mr-4 inline-flex items-center">
     <span class="text-xl text-white font-bold uppercase tracking-wide">
       Robocode 2021
     </span>
   </Link>
   <button
-    class="text-white inline-flex hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
+    class="text-white inline-flex hover:bg-gray-900 rounded md:hidden ml-auto hover:text-white outline-none"
   >
     <svg
       class="w-8 h-8"
@@ -28,11 +28,13 @@
       /></svg
     >
   </button>
-  <div class="hidden w-full lg:inline-flex lg:flex-grow lg:w-auto">
+  <div class="hidden w-full md:inline-flex md:flex-grow md:w-auto">
     <div
-      class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto"
+      class="md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start flex flex-col md:h-auto"
     >
+      <Navlink to="/guide" text="Juhendid" />
       <Navlink to="/reeglid" text="Reeglid" />
+      <Navlink to="/ask" text="Küsi" />
       <Navlink to="/registreeri" text="Registreeri" />
     </div>
   </div>

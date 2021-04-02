@@ -7,6 +7,9 @@ module.exports = {
         primary: '#73073c',
         secondary: '#2504c7',
       },
+      fontFamily: {
+        sans: ['"Titillium Web"', 'sans-serif'],
+      },
     },
   },
   variants: {

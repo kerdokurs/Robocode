@@ -2,10 +2,20 @@
   import { Router, Link, Route } from 'svelte-navigator';
   import Footer from './lib/footer.svelte';
   import Navbar from './lib/navbar.svelte';
+  import Ask from './routes/ask.svelte';
+  import Guide from './routes/guide.svelte';
   import Index from './routes/index.svelte';
   import Register from './routes/register.svelte';
   import Rules from './routes/rules.svelte';
 </script>
+
+<svelte:head>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap"
+    rel="stylesheet"
+  />
+</svelte:head>
 
 <Router>
   <Navbar />
@@ -13,6 +23,8 @@
     <Route path="/"><Index /></Route>
     <Route path="/reeglid"><Rules /></Route>
     <Route path="/registreeri"><Register /></Route>
+    <Route path="/guide"><Guide /></Route>
+    <Route path="/ask"><Ask /></Route>
   </main>
   <Footer />
 </Router>
@@ -21,6 +33,7 @@
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
+
   :global(*) {
     padding: 0;
     margin: 0;
