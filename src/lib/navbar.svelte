@@ -1,11 +1,11 @@
 <script>
   import { Link } from 'svelte-navigator';
   import Navlink from './navlink.svelte';
-
-  let extended = false;
 </script>
 
-<nav class="flex items-center w-full px-2 md:px-14 bg-gray-900 text-white">
+<nav
+  class="fixed top-0 flex items-center w-full px-2 md:px-14 bg-gray-900 text-white"
+>
   <Link to="/" class="p-2 mr-4 inline-flex items-center">
     <span class="text-xl text-white font-bold uppercase tracking-wide">
       Robocode 2021
@@ -13,6 +13,7 @@
   </Link>
   <button
     class="text-white inline-flex hover:bg-gray-900 rounded md:hidden ml-auto hover:text-white outline-none"
+    name="mobile_menu"
   >
     <svg
       class="w-8 h-8"
@@ -30,7 +31,7 @@
   </button>
   <div class="hidden w-full md:inline-flex md:flex-grow md:w-auto">
     <div
-      class="md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start flex flex-col md:h-auto"
+      class="md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start flex flex-col md:h-auto gap-3"
     >
       <Navlink to="/guide" text="Juhendid" />
       <Navlink to="/reeglid" text="Reeglid" />

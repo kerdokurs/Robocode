@@ -19,7 +19,7 @@
 
 <Router>
   <Navbar />
-  <main class="w-full px-4 md:w-3/5 mx-auto my-10">
+  <main class="w-full px-4 md:w-3/5 mx-auto my-20">
     <Route path="/"><Index /></Route>
     <Route path="/reeglid"><Rules /></Route>
     <Route path="/registreeri"><Register /></Route>
@@ -41,6 +41,6 @@
   }
 
   :global(body) {
-    @apply bg-gray-800 text-white;
+    @apply bg-gray-800 text-gray-200;
   }
 </style>
