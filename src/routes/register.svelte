@@ -5,8 +5,8 @@
   import { firestore } from '../firebase';
   import Inputfield from '../lib/inputfield.svelte';
 
-  let recaptcha: any;
-  let verifier;
+  // let recaptcha: any;
+  // let verifier;
 
   const form = useForm({
     teamName: {
@@ -65,12 +65,12 @@
         <Inputfield name="captainEmail" label="Kapteni email" />
         <Inputfield name="captainNumber" label="Kapteni telefon" />
 
-        <div id="recaptcha" bind:this={recaptcha} />
+        <!-- <div id="recaptcha" bind:this={recaptcha} /> -->
 
         <Button>Esita</Button>
       </form>
     </div>
-    <div class="mt-12 md:mt-0">
+    <div class="mt-12 md:mt-0 side">
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
         consectetur eveniet tempore aperiam nulla qui eligendi excepturi
@@ -80,7 +80,7 @@
         nihil necessitatibus expedita earum voluptatum harum soluta labore iure
         a quasi, hic culpa?
       </p>
-      <p class="mt-2">
+      <p>
         Omnis nam quod quaerat est eum ut temporibus fugit et quas ipsum,
         corrupti aperiam aut delectus voluptatibus commodi hic, quidem modi
         reprehenderit officia ipsa laudantium! Perspiciatis ullam vitae neque
@@ -89,7 +89,7 @@
         cupiditate excepturi. Ipsa, rerum aperiam. Enim sapiente ut quasi,
         possimus delectus quaerat.
       </p>
-      <p class="mt-2">
+      <p>
         Iure aspernatur quae commodi. Quasi qui excepturi obcaecati a,
         dignissimos voluptatum molestias quo natus quis repellendus sed quaerat
         inventore consectetur nisi error earum, aperiam, optio harum deserunt
@@ -101,3 +101,15 @@
     </div>
   </div>
 </div>
+
+<style lang="scss">
+  .side {
+    & > p {
+      @apply text-justify;
+
+      &:not(:first-child) {
+        @apply mt-2;
+      }
+    }
+  }
+</style>
