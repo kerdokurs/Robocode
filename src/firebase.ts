@@ -12,7 +12,7 @@ const firebaseConfig = {
   measurementId: 'G-S6K4EFX215',
 };
 
-if (firebase.apps.length == 0) firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 
 const firestore = firebase.firestore();
 const serverTimeStamp = firebase.firestore.FieldValue.serverTimestamp;

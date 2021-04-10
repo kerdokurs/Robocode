@@ -9,14 +9,6 @@
   import Rules from './routes/rules.svelte';
 </script>
 
-<svelte:head>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap"
-    rel="stylesheet"
-  />
-</svelte:head>
-
 <Router>
   <Navbar />
   <main class="w-full px-4 md:w-3/5 mx-auto my-20">
@@ -41,6 +33,6 @@
   }
 
   :global(body) {
-    @apply bg-gray-800 text-gray-200;
+    @apply bg-taust text-gray-200;
   }
 </style>
