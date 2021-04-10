@@ -1,5 +1,6 @@
 <script lang="ts">
   export let disabled: boolean = false;
+  export let rounded: boolean = false;
 
   let classNames: string;
 
@@ -9,7 +10,9 @@
 <button
   {disabled}
   type="submit"
-  class="bg-secondary w-24 py-2 rounded uppercase font-bold {classNames}"
+  class="mt-8 inline-block bg-kollane text-black font-bold text-xl px-8 py-2 {rounded
+    ? 'rounded-full'
+    : 'rounded-sm'}"
 >
   <slot />
 </button>
