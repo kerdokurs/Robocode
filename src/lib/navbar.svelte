@@ -21,14 +21,14 @@
         <div class="flex flex-row gap-4">
           <Link
             to="/juhend"
-            class="bg-transparent inline-block text-lg border border-oranz px-12 py-1 rounded-full focus:outline-none"
+            class="bg-transparent inline-block text-lg border border-oranz px-8 py-1 rounded-full focus:outline-none"
           >
             Juhend
           </Link>
 
           <Link
             to="/reeglid"
-            class="bg-transparent inline-block text-lg border border-oranz px-12 py-1 rounded-full focus:outline-none"
+            class="bg-transparent inline-block text-lg border border-oranz px-8 py-1 rounded-full focus:outline-none"
           >
             Reeglid
           </Link>

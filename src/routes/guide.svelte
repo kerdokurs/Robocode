@@ -3,5 +3,5 @@
 </svelte:head>
 
 <div>
-  <h1 class="text-4xl">Juhendid</h1>
+  <h1 class="text-4xl">Juhend</h1>
 </div>

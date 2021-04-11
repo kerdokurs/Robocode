@@ -36,6 +36,6 @@
 
   :global(button),
   :global(.button) {
-    @apply mt-8 inline-block bg-kollane text-black font-bold text-xl px-8 py-2 rounded-lg;
+    @apply mt-8 inline-block bg-kollane text-black font-bold px-8 py-2 rounded-lg;
   }
 </style>

@@ -13,7 +13,7 @@
       Pane end proovile Robocodeil!
     </h1>
 
-    <p class="font-medium mt-3 text-lg text-left">
+    <p class="font-medium mt-3 text-xl text-left">
       Tule tõesta oma progemisoskusi tuntud võistlusprogrammeerimisüritusel -
       Robocode! Registreeru koos oma tiimiga!
     </p>

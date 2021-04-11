@@ -1,49 +1,73 @@
 <script>
   import { onMount } from 'svelte';
-  import { email, required, useForm } from 'svelte-use-form';
-  import { firestore } from '../firebase';
+  import { email, minLength, required, useForm } from 'svelte-use-form';
+  import Hint from 'svelte-use-form/dist/ts/components/Hint.svelte';
+  import { firestore, RecaptchaVerifier, serverTimeStamp } from '../firebase';
   import Button from '../lib/button.svelte';
   import Inputfield from '../lib/inputfield.svelte';
 
-  // let recaptcha: any;
-  // let verifier;
+  let recaptcha: any;
+  let verifier: any;
+  let captchaHint = false;
+  let verified = false;
+
+  let submitted = false;
 
   const form = useForm({
-    teamName: {
-      validators: [required],
+    team_name: {
+      validators: [minLength(3)],
     },
-    teamCaptain: {
-      validators: [required],
+    captain_name: {
+      validators: [minLength(3)],
     },
-    captainEmail: {
+    captain_email: {
       validators: [email],
     },
-    captainNumber: {
-      validators: [required],
+    member1_name: {
+      validators: [],
+    },
+    member2_name: {
+      validators: [],
+    },
+    member3_name: {
+      validators: [],
+    },
+    member4_name: {
+      validators: [],
     },
   });
 
   onMount(() => {
-    // verifier = new RecaptchaVerifier(recaptcha, {
-    //   size: 'invisible',
-    //   callback: (res: any) => {
-    //     console.log(res);
-    //   },
-    //   'expired-callback': () => {
-    //     console.log('expired');
-    //   },
-    // });
-    // verifier.verify();
+    verifier = new RecaptchaVerifier(recaptcha, {
+      callback: (res: any) => {
+        verified = true;
+        captchaHint = false;
+      },
+      'expired-callback': () => {
+        captchaHint = true;
+      },
+    });
+    verifier.render();
   });
 
-  const registerCollection = firestore.collection('registers');
+  const registerCollection = firestore.collection('registered');
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
+    if (!verified) {
+      captchaHint = true;
+      return;
+    } else {
+      captchaHint = false;
+    }
+
     const { values } = $form;
-    registerCollection.add({
+
+    submitted = true;
+
+    await registerCollection.add({
       ...values,
+      created_at: serverTimeStamp(),
     });
-    console.log('submitted:', values);
   };
 </script>
 
@@ -58,13 +82,48 @@
     on:submit|preventDefault={onSubmit}
     class="grid grid-flow-row gap-4 w-full md:w-4/5 mt-3"
   >
-    <Inputfield name="teamName" label="Tiimi nimi" />
-    <Inputfield name="captainName" label="Tiimi kapten" />
-    <Inputfield name="captainEmail" label="Kapteni email" />
-    <Inputfield name="captainNumber" label="Kapteni telefon" />
+    <Inputfield name="team_name" label="Tiimi nimi" disabled={submitted} />
+    <Hint for="team_name" on="minLength" class="text-red-400" let:value>
+      Tiiminimi peab sisaldama vähemalt {value} tähemärki
+    </Hint>
 
-    <!-- <div id="recaptcha" bind:this={recaptcha} /> -->
+    <Inputfield name="captain_name" label="Tiimi kapten" disabled={submitted} />
+    <Hint for="captain_name" on="minLength" class="text-red-400" let:value>
+      Nimi peab sisaldama vähemalt {value} tähemärki
+    </Hint>
 
-    <Button>Esita</Button>
+    <Inputfield
+      name="captain_email"
+      label="Kapteni email"
+      email
+      disabled={submitted}
+    />
+    <Hint for="captain_email" on="email" class="text-red-400">
+      Palun sisesta korrektne email
+    </Hint>
+
+    <h2 class="text-2xl mt-3">Liikmed</h2>
+
+    <Inputfield name="member2_name" label="Liige #2" disabled={submitted} />
+    <Inputfield name="member3_name" label="Liige #3" disabled={submitted} />
+    <Inputfield name="member4_name" label="Liige #4" disabled={submitted} />
+    <Inputfield name="member5_name" label="Liige #5" disabled={submitted} />
+
+    <div id="recaptcha" bind:this={recaptcha} />
+    {#if captchaHint}
+      <span class="text-red-600">Palun kinnita, et sa ei ole robot</span>
+    {/if}
+
+    <!-- <pre>{JSON.stringify($form,null,2)}</pre> -->
+
+    <button
+      type="submit"
+      class="w-3/5 sm:w-1/3 md:w-1/6 {!$form.valid || submitted
+        ? 'cursor-not-allowed opacity-75'
+        : ''}"
+      disabled={!$form.valid || submitted}
+    >
+      Esita
+    </button>
   </form>
 </div>
