@@ -2,7 +2,8 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "test": "web-test-runner \"src/**/*.test.ts\""
+    "test": "web-test-runner \"src/**/*.test.ts\"",
+    "deploy:hosting": "firebase deploy --only hosting"
   },
   "dependencies": {
     "@snowpack/plugin-postcss": "^1.2.1",

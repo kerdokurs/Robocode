@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBf4sLDxhBSeEM0YfZfdnSAotRHlCkjvL8',
@@ -13,6 +14,8 @@ const firebaseConfig = {
 };
 
 if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+
+firebase.analytics();
 
 const firestore = firebase.firestore();
 const serverTimeStamp = firebase.firestore.FieldValue.serverTimestamp;

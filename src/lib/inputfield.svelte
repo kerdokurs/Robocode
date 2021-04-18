@@ -4,6 +4,10 @@
 
   export let disabled: boolean = false;
   export let email: boolean = false;
+
+  let classNames: string;
+
+  export { classNames as class };
 </script>
 
 {#if email}
@@ -14,7 +18,7 @@
       {disabled}
       class="bg-transparent border-b-2 border-kollane w-full p-2 outline-none {disabled
         ? 'text-gray-400'
-        : ''}"
+        : ''} {classNames}"
       {name}
     />
   </div>
@@ -26,7 +30,7 @@
       {disabled}
       class="bg-transparent border-b-2 border-kollane w-full p-2 outline-none {disabled
         ? 'text-gray-400'
-        : ''}"
+        : ''} {classNames}"
       {name}
     />
   </div>

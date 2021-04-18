@@ -11,6 +11,9 @@
   let captchaHint = false;
   let verified = false;
 
+  let otherSchool = '';
+  let otherSchoolHint = false;
+
   let submitted = false;
 
   const form = useForm({
@@ -34,6 +37,9 @@
     },
     member4_name: {
       validators: [],
+    },
+    school: {
+      validators: [minLength(2)],
     },
   });
 
@@ -62,10 +68,17 @@
 
     const { values } = $form;
 
+    console.log(values);
+    if (values.school === 'muu' && (!otherSchool || otherSchool.length <= 2)) {
+      otherSchoolHint = true;
+      return;
+    } else otherSchoolHint = false;
+
     submitted = true;
 
     await registerCollection.add({
       ...values,
+      other_school: otherSchool,
       created_at: serverTimeStamp(),
     });
   };
@@ -109,12 +122,52 @@
     <Inputfield name="member4_name" label="Liige #4" disabled={submitted} />
     <Inputfield name="member5_name" label="Liige #5" disabled={submitted} />
 
-    <div id="recaptcha" bind:this={recaptcha} />
+    <div>
+      <label for="school" class="text-lg font-medium block">Kool</label>
+      <select
+        name="school"
+        class="block bg-transparent border-b-2 border-kollane w-full p-2 outline-none"
+      >
+        <option value="" selected>Vali kool</option>
+        <option value="TU">Tartu Ülikool</option>
+        <option value="TTU">TalTech</option>
+        <option value="TLU">Tallinna Ülikool</option>
+        <option value="muu">Muu</option>
+      </select>
+      <div class="mt-4">
+        {#if $form.values['school'] === 'muu'}
+          <div>
+            <label for="school_other" class="text-lg font-medium block"
+              >Palun täpsusta</label
+            >
+            <input
+              type="text"
+              name="school_other"
+              disabled={submitted}
+              class="bg-transparent border-b-2 border-kollane w-full p-2 outline-none {submitted
+                ? 'text-gray-400'
+                : ''}"
+              bind:value={otherSchool}
+            />
+          </div>
+          {#if otherSchoolHint}
+            <span class="text-red-600">Palun täpsusta</span>
+          {/if}
+          <!-- <input
+          type="text"
+          name="school_other"
+          class="bg-transparent border-b-2 border-kollane w-full p-2 outline-none block mt-10"
+          /> -->
+        {/if}
+      </div>
+    </div>
+
+    <div id="recaptcha" bind:this={recaptcha} class="mt-3" />
     {#if captchaHint}
       <span class="text-red-600">Palun kinnita, et sa ei ole robot</span>
     {/if}
 
-    <!-- <pre>{JSON.stringify($form,null,2)}</pre> -->
+    <!-- <pre>{JSON.stringify($form.values,null,2)}</pre> -->
 
     <button
       type="submit"
@@ -127,3 +180,11 @@
     </button>
   </form>
 </div>
+
+<style>
+  option {
+    @apply border-b-2;
+    @apply border-kollane;
+    @apply bg-taust;
+  }
+</style>

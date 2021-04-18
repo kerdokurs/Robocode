@@ -42,7 +42,7 @@
           class="h-12 mx-auto md:mx-0"
         />
 
-        <div class="text-center">ituk[ät]ituk.ee</div>
+        <div class="text-center">kontakt[ät]ituk.ee</div>
 
         <div class="flex flex-row gap-2 justify-center md:justify-end">
           <svg
