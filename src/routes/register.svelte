@@ -59,28 +59,38 @@
   const registerCollection = firestore.collection('registered');
 
   const onSubmit = async () => {
-    if (!verified) {
-      captchaHint = true;
-      return;
-    } else {
-      captchaHint = false;
+    try {
+      if (!verified) {
+        captchaHint = true;
+        return;
+      } else {
+        captchaHint = false;
+      }
+
+      const { values } = $form;
+
+      console.log(values);
+      if (
+        values.school === 'muu' &&
+        (!otherSchool || otherSchool.length <= 2)
+      ) {
+        otherSchoolHint = true;
+        return;
+      } else otherSchoolHint = false;
+
+      await registerCollection.add({
+        ...values,
+        other_school: otherSchool,
+        created_at: serverTimeStamp(),
+      });
+      submitted = true;
+    } catch (err) {
+      alert('Tundmatu viga: ' + err);
+      await firestore.collection('reports').add({
+        err,
+        created_at: serverTimeStamp(),
+      });
     }
-
-    const { values } = $form;
-
-    console.log(values);
-    if (values.school === 'muu' && (!otherSchool || otherSchool.length <= 2)) {
-      otherSchoolHint = true;
-      return;
-    } else otherSchoolHint = false;
-
-    submitted = true;
-
-    await registerCollection.add({
-      ...values,
-      other_school: otherSchool,
-      created_at: serverTimeStamp(),
-    });
   };
 </script>
 
