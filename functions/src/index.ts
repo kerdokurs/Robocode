@@ -1,7 +1,5 @@
 import * as functions from 'firebase-functions';
-import * as admin from 'firebase-admin';
-
-admin.initializeApp();
+import * as mail from '@sendgrid/mail';
 
 export const sendConfirmation = functions
   .region('europe-west1')
@@ -9,16 +7,20 @@ export const sendConfirmation = functions
   .onCreate((snap, ctx) => {
     const { team_name, captain_email } = snap.data();
 
-    return admin
-      .firestore()
-      .collection('mail')
-      .add({
+    mail.setApiKey(functions.config().sg.key);
+    return mail
+      .send({
         to: captain_email,
-        template: {
-          name: 'reg_ok',
-          data: {
-            team_name,
-          },
+        from: 'kerdo@kerdo.me',
+        templateId: 'd-44b1bd7379a9404fb524f985957b1b85',
+        dynamicTemplateData: {
+          team_name,
         },
+      })
+      .then(() => {
+        functions.logger.info(`Email to ${captain_email} sent!`);
+      })
+      .catch((err) => {
+        functions.logger.error('Error sending email', err);
       });
   });
