@@ -68,6 +68,8 @@
           &copy; MITS & ITÜK {new Date().getFullYear()}.
           <a
             href="https://github.com/kerdokurs/robocode"
+            target="_blank"
+            rel="noopener"
             class="border-b border-white">GitHub</a
           >.
         </p>
