@@ -66,7 +66,10 @@
       <div class="border-t border-white py-2 mt-8">
         <p class="text-center">
           &copy; MITS & ITÜK {new Date().getFullYear()}.
-          <a href="https://github.com/kerdokurs/robocode">GitHub</a>.
+          <a
+            href="https://github.com/kerdokurs/robocode"
+            class="border-b border-white">GitHub</a
+          >.
         </p>
       </div>
     </div>
