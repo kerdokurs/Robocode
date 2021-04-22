@@ -1,4 +1,6 @@
 <script lang="typescript">
+  import { onMount } from 'svelte';
+
   import { Route, Router } from 'svelte-navigator';
   import Footer from './lib/footer.svelte';
   import Navbar from './lib/navbar.svelte';
@@ -6,6 +8,7 @@
   import Index from './routes/index.svelte';
   import Register from './routes/register.svelte';
   import Rules from './routes/rules.svelte';
+  import './locale/i18n';
 </script>
 
 <Router>

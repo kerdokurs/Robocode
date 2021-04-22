@@ -1,14 +1,12 @@
 <script>
-  import { onMount } from 'svelte';
-  import { email, minLength, required, useForm } from 'svelte-use-form';
+  import Captcha from '../lib/captcha.svelte';
+  import { isLoading, _ } from 'svelte-i18n';
+  import { email, minLength, useForm } from 'svelte-use-form';
   import Hint from 'svelte-use-form/dist/ts/components/Hint.svelte';
-  import { firestore, RecaptchaVerifier, serverTimeStamp } from '../firebase';
-  import Button from '../lib/button.svelte';
-  import Inputfield from '../lib/inputfield.svelte';
   import { fade } from 'svelte/transition';
+  import { firestore, serverTimeStamp } from '../firebase';
+  import Inputfield from '../lib/inputfield.svelte';
 
-  let recaptcha: any;
-  let verifier: any;
   let captchaHint = false;
   let verified = false;
 
@@ -44,19 +42,6 @@
     },
   });
 
-  onMount(() => {
-    verifier = new RecaptchaVerifier(recaptcha, {
-      callback: (res: any) => {
-        verified = true;
-        captchaHint = false;
-      },
-      'expired-callback': () => {
-        captchaHint = true;
-      },
-    });
-    verifier.render();
-  });
-
   const registerCollection = firestore.collection('registered');
 
   const onSubmit = async () => {
@@ -89,7 +74,7 @@
       // await sleep(2000);
       submitted = true;
     } catch (err) {
-      alert('Tundmatu viga: ' + err);
+      alert(`${$_('register.error')}: ` + err);
       await firestore.collection('reports').add({
         err,
         created_at: serverTimeStamp(),
@@ -102,71 +87,95 @@
   <title>Registreeri | Robocode 2021</title>
 </svelte:head>
 
-{#if submitted}
+{#if submitted && !$isLoading}
   <div in:fade>
-    <h1 class="text-4xl">Oled robocode'ile edukalt registreerunud!</h1>
-    <p class="text-lg mt-3">Ole kindlasti võistlusel kohal!</p>
+    <h1 class="text-4xl">{$_('register.successful')}</h1>
+    <p class="text-lg mt-3">{$_('register.be_there')}</p>
     <p class="text-lg mt-3">
-      Saatsime sulle meilile ka kinnituse. Võib-olla pead kontrollima
-      späm-kausta!
+      {$_('register.mail')}
     </p>
   </div>
-{:else}
+{:else if !$isLoading}
   <div out:fade>
-    <h1 class="text-4xl">Registreeri</h1>
+    <h1 class="text-4xl">{$_('register.header')}</h1>
     <form
       use:form
       on:submit|preventDefault={onSubmit}
       class="grid grid-flow-row gap-4 w-full md:w-4/5 mt-3"
     >
-      <Inputfield name="team_name" label="Tiimi nimi" disabled={submitted} />
+      <Inputfield
+        name="team_name"
+        label={$_('register.team_name')}
+        disabled={submitted}
+      />
       <Hint for="team_name" on="minLength" class="text-red-400" let:value>
-        Tiiminimi peab sisaldama vähemalt {value} tähemärki
+        {$_('register.team_name_must')}
+        {value}
+        {$_('register.team_name_char')}
       </Hint>
 
       <Inputfield
         name="captain_name"
-        label="Tiimi kapten"
+        label={$_('register.captain_name')}
         disabled={submitted}
       />
       <Hint for="captain_name" on="minLength" class="text-red-400" let:value>
-        Nimi peab sisaldama vähemalt {value} tähemärki
+        {$_('register.captain_name_must')}
+        {value}
+        {$_('register.captain_name_char')}
       </Hint>
 
       <Inputfield
         name="captain_email"
-        label="Kapteni email"
+        label={$_('register.captain_email')}
         email
         disabled={submitted}
       />
       <Hint for="captain_email" on="email" class="text-red-400">
-        Palun sisesta korrektne email
+        {$_('register.captain_email_correct')}
       </Hint>
 
-      <h2 class="text-2xl mt-3">Liikmed</h2>
+      <h2 class="text-2xl mt-3">{$_('register.members')}</h2>
 
-      <Inputfield name="member2_name" label="Liige #2" disabled={submitted} />
-      <Inputfield name="member3_name" label="Liige #3" disabled={submitted} />
-      <Inputfield name="member4_name" label="Liige #4" disabled={submitted} />
-      <Inputfield name="member5_name" label="Liige #5" disabled={submitted} />
+      <Inputfield
+        name="member2_name"
+        label={$_('register.member') + ' #2'}
+        disabled={submitted}
+      />
+      <Inputfield
+        name="member3_name"
+        label={$_('register.member') + ' #3'}
+        disabled={submitted}
+      /><Inputfield
+        name="member4_name"
+        label={$_('register.member') + ' #4'}
+        disabled={submitted}
+      />
+      <Inputfield
+        name="member5_name"
+        label={$_('register.member') + ' #5'}
+        disabled={submitted}
+      />
 
       <div>
-        <label for="school" class="text-lg font-medium block">Kool</label>
+        <label for="school" class="text-lg font-medium block"
+          >{$_('register.school.school')}</label
+        >
         <select
           name="school"
           class="block bg-transparent border-b-2 border-kollane w-full p-2 outline-none"
         >
-          <option value="" selected>Vali kool</option>
-          <option value="TU">Tartu Ülikool</option>
-          <option value="TTU">TalTech</option>
-          <option value="TLU">Tallinna Ülikool</option>
-          <option value="muu">Muu</option>
+          <option value="" selected>{$_('register.school.choose')}</option>
+          <option value="TU">{$_('register.school.tu')}</option>
+          <option value="TTU">{$_('register.school.ttu')}</option>
+          <option value="TLU">{$_('register.school.tlu')}</option>
+          <option value="muu">{$_('register.school.other')}</option>
         </select>
         <div class="mt-4">
           {#if $form.values['school'] === 'muu'}
             <div>
               <label for="school_other" class="text-lg font-medium block"
-                >Palun täpsusta</label
+                >{$_('register.school.specify')}</label
               >
               <input
                 type="text"
@@ -179,7 +188,7 @@
               />
             </div>
             {#if otherSchoolHint}
-              <span class="text-red-600">Palun täpsusta</span>
+              <span class="text-red-600">{$_('register.school.hint')}</span>
             {/if}
             <!-- <input
           type="text"
@@ -190,10 +199,7 @@
         </div>
       </div>
 
-      <div id="recaptcha" bind:this={recaptcha} class="mt-3" />
-      {#if captchaHint}
-        <span class="text-red-600">Palun kinnita, et sa ei ole robot</span>
-      {/if}
+      <Captcha bind:verified bind:captchaHint />
 
       <!-- <pre>{JSON.stringify($form.values,null,2)}</pre> -->
 
@@ -204,7 +210,7 @@
           : ''}"
         disabled={!$form.valid || submitted}
       >
-        Esita
+        {$_('register.submit')}
       </button>
     </form>
   </div>
