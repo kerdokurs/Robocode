@@ -53,7 +53,7 @@
                 <Est />
               </p>
               <p
-                class="cursor-pointer {getLocale() === 'en'
+                class="transform cursor-pointer {getLocale() === 'en'
                   ? 'scale-125'
                   : 'scale-100'}"
                 on:click={() => changeLocale('en')}
