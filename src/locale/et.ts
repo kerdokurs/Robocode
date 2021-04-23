@@ -17,6 +17,7 @@ export default {
         'Mängija on roboti programmeerija, kellel ei ole mängu toimumise ajal mingit otsest mõju mängukursile. Mängija peab kirjutama roboti AI, mis määrab roboti käitumise ja reageerimise lahinguväljal toimuvatele sündmustele.',
         'Võistlemine lahinguväljal toimub reaalajas, kus kuuerattalised automatiseeritud tankid võitlevad niikaua, kuni ainult võitja jääb järele.',
       ],
+      more: 'Soovid rohkem infot?',
     },
   },
   ask: {

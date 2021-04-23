@@ -17,6 +17,7 @@ export default {
         'The player is only the programmer - they will not have any direct impact on the course of the battle. The player must write the AI which defines the behaviour and reactions of the tank according to the current events on the battlefield.',
         'The battle on the battlefield will take place in real time. The programmed tanks will battle until only one of them is left.',
       ],
+      more: 'Want more information?',
     },
   },
   ask: {

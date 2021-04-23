@@ -48,7 +48,12 @@
           {/each}
         </div>
 
-        <!-- <button class="rounded-full">Soovid rohkem infot?</button> -->
+        <a
+          class="button rounded-full"
+          href="https://robocode.sourceforge.io/"
+          target="_blank"
+          rel="noopener">{$_('index.side.more')}</a
+        >
       </div>
     </div>
 
