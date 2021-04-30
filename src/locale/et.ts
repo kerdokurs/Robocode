@@ -90,4 +90,8 @@ export default {
       ],
     },
   },
+  archive: {
+    title: 'Arhiiv',
+    livestream: 'otseülekanne',
+  },
 };

@@ -25,6 +25,12 @@
       <Link to="registreeri" class="button text-xl mx-auto"
         >{$_('index.main.register')}</Link
       >
+
+      <p>
+        <Link to="arhiiv" class="button text-xl mx-auto"
+          >{$_('archive.title')}</Link
+        >
+      </p>
     </div>
 
     <div class="block col-span-12 lg:col-span-6 order-2">

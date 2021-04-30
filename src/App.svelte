@@ -1,14 +1,13 @@
 <script lang="typescript">
-  import { onMount } from 'svelte';
-
   import { Route, Router } from 'svelte-navigator';
   import Footer from './lib/footer.svelte';
   import Navbar from './lib/navbar.svelte';
+  import './locale/i18n';
+  import Archive from './routes/archive.svelte';
   import Guide from './routes/guide.svelte';
   import Index from './routes/index.svelte';
   import Register from './routes/register.svelte';
   import Rules from './routes/rules.svelte';
-  import './locale/i18n';
 </script>
 
 <Router>
@@ -18,6 +17,7 @@
     <Route path="/reeglid" primary={false}><Rules /></Route>
     <Route path="/registreeri" primary={false}><Register /></Route>
     <Route path="/juhend" primary={false}><Guide /></Route>
+    <Route path="/arhiiv" primary={false}><Archive /></Route>
   </main>
   <Footer />
 </Router>

@@ -2,7 +2,13 @@
   // @ts-nocheck
   import Carousel from 'svelte-carousel';
 
-  let sponsors: Sponsor[] = [];
+  let sponsors: Sponsor[] = [
+    {
+      imageUrl:
+        'http://skypemafia.com/wp-content/uploads/2016/03/pipedrive-logo.png',
+      alt: 'Pipedrive',
+    },
+  ];
 
   interface Sponsor {
     imageUrl: string;
