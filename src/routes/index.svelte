@@ -1,6 +1,7 @@
 <script>
   import { Link } from 'svelte-navigator';
   import Ask from '../lib/ask.svelte';
+  import Sponsors from '../lib/sponsors.svelte';
   import { isLoading, _ } from 'svelte-i18n';
 </script>
 
@@ -55,6 +56,11 @@
           rel="noopener">{$_('index.side.more')}</a
         >
       </div>
+    </div>
+
+    <!-- TODO: Tõsta see komponendi sisse, et vajadusel see peita -->
+    <div class="lg:block col-span-12 order-5">
+      <Sponsors />
     </div>
 
     <Ask />
