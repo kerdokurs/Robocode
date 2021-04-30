@@ -38,12 +38,12 @@
 
 {#if !$isLoading}
   {#if submitted}
-    <div class="col-span-12 order-5" in:fade>
+    <div class="col-span-12 order-6" in:fade>
       <h1 class="text-4xl">{$_('ask.success')}</h1>
       <p class="text-xl mt-3">{$_('ask.respond')}</p>
     </div>
   {:else}
-    <div class="col-span-12 order-5" out:fade>
+    <div class="col-span-12 order-6" out:fade>
       <h1 class="text-4xl">{$_('ask.header')}</h1>
 
       <form

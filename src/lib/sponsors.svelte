@@ -1,6 +1,6 @@
 <script lang="ts">
+  // @ts-nocheck
   import Carousel from 'svelte-carousel';
-  // import 'svelte-carousel/dist/index.css';
 
   let sponsors: Sponsor[] = [];
 
@@ -11,15 +11,14 @@
 </script>
 
 {#if sponsors.length}
-  <div>
+  <div class="block col-span-12 order-5">
     <Carousel
       let:loaded
-      autoplay={true}
+      autoplay={sponsors.length >= 2}
       autoplayDuration={5000}
-      let:showNextPage
     >
       {#each sponsors as sponsor, i (sponsor.imageUrl)}
-        <div class="img-container bg-red-200">
+        <div class="flex flex-row justify-center">
           {#if loaded.includes(i)}
             <img src={sponsor.imageUrl} alt={sponsor.alt} />
           {/if}
