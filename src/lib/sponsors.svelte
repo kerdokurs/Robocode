@@ -2,36 +2,7 @@
   // @ts-nocheck
   import Carousel from 'svelte-carousel';
 
-  let sponsors: Batch[] = [
-    {
-      sponsors: [
-        {
-          imageUrl:
-            'http://skypemafia.com/wp-content/uploads/2016/03/pipedrive-logo.png',
-          alt: 'Pipedrive1',
-        },
-      ],
-    },
-    {
-      sponsors: [
-        {
-          imageUrl:
-            'http://skypemafia.com/wp-content/uploads/2016/03/pipedrive-logo.png',
-          alt: 'Pipedrive2',
-        },
-        {
-          imageUrl:
-            'http://skypemafia.com/wp-content/uploads/2016/03/pipedrive-logo.png',
-          alt: 'Pipedrive3',
-        },
-        {
-          imageUrl:
-            'http://skypemafia.com/wp-content/uploads/2016/03/pipedrive-logo.png',
-          alt: 'Pipedrive4',
-        },
-      ],
-    },
-  ];
+  let sponsors: Batch[] = [];
 
   interface Sponsor {
     imageUrl: string;
