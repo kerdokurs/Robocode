@@ -2,6 +2,7 @@ export default {
   nav: {
     guide: 'Guide',
     rules: 'Rules',
+    archive: 'Archive',
   },
   index: {
     main: {

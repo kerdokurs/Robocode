@@ -2,6 +2,7 @@ export default {
   nav: {
     guide: 'Juhend',
     rules: 'Reeglid',
+    archive: 'Arhiiv',
   },
   index: {
     main: {

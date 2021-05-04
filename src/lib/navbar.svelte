@@ -43,6 +43,13 @@
               {$_('nav.rules')}
             </Link>
 
+            <Link
+              to="/arhiiv"
+              class="bg-transparent inline-block text-lg border border-oranz px-8 py-1 rounded-full focus:outline-none"
+            >
+              {$_('nav.archive')}
+            </Link>
+
             <div class="inline-flex flex-row items-end gap-2">
               <p
                 class="transform cursor-pointer {getLocale() === 'et'
