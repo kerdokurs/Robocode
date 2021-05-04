@@ -71,10 +71,6 @@
         Facebook event
       </a>
     </p>
-
-    <p>
-      <Link to="/juhend" class="border-b border-white">{$_('nav.guide')}</Link>
-    </p>
   </div>
 {/if}
 
