@@ -73,11 +73,12 @@ export default {
     participating: {
       header: 'Osalemine',
       rules: [
+        'Auhinnafond on 1000 €:, 500 € esimesele, 300 € teisele ja 200 € kolmandale kohale. Auhinna rahale lisandub tulumaks.',
         'Võistlusel saab osaleda 1-5-liikmeline võistkond.',
         'Võistkonnas peab olema vähemalt üks Eesti ülikooli üliõpilane.',
         'Võistkonna osalemine tuleb registreerida hiljemalt 12. mai 2021.',
         'Võistkond peab oma eelprogrammeeritud võistlusmasinaga osalema 16.05.2021 virtuaalselt toimuval lõppvõistlusel. Esindamata võistkonnad diskvalifitseeritakse.',
-        'Võistkond peab korraldaja antud ajaks andma korraldaja määratud isikule juurdepääsu koodile. Kood peab läbima plagiaadikontrolli nii teiste võistlejate kui ka levinud teiste võistlusmasinate suhtes. Plagiaadi tuvastamisel tulemused tühistatakse.',
+        'Koodi esitamise tähtaeg on <b>12. mai 23:59</b>. Kood tuleb üles laadida privaatsesse repositooriumisse (GitHub, Bitbucket, GitLab vm) ning lugemisõigus anda järgmistele aadressidele: <b>peetertarvas[ät]gmail.com</b> ja <b>h.zuppur[ät]gmail.com</b>. Lõpuks tuleb saata koodi repositooriumi link samadele emailidele. Kood läbib ka plagiaadikontrolli ning robotid integreeritakse võistluskeskkonnaga. Plagiaadi tuvastamisel tulemused tühistatakse.',
       ],
     },
     tech: {

@@ -12,7 +12,7 @@
     <h2 class="mt-4 text-2xl">{$_('rules.participating.header')}</h2>
     <ul class="list-decimal list-inside">
       {#each $_('rules.participating.rules') as rule}
-        <li>{rule}</li>
+        <li>{@html rule}</li>
       {/each}
     </ul>
     <h2 class="mt-4 text-2xl">

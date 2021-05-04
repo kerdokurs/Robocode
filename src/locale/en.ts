@@ -73,11 +73,13 @@ export default {
     participating: {
       header: 'Participating',
       rules: [
+        'The prize pool is 1000 €: 500 € for the first, 300 € for the second, and 200 € for the third place. VAT will be added to the prize.',
         'Participating teams must have 1-5 members.',
         'Each participating team must have at least one member studying in an Estonian university.',
         'Registration deadline is on the 12th of May 2021.',
         'The team must participate in the virtual final battle with their pre-programmed machine on the 16th of May 2021. Unrepresented teams will be disqualified.',
         'Each team must grant access to the code. By what time and to whom will be assigned by the organisers. Each code must pass through a plagiarism control where they will be compared to both other contestants and already well-known code. All plagiarized works will be revoked.',
+        'The submission deadline for the code is <b>12th of May 23:59</b>. The code must be uploaded to a private repository (GitHub, Bitbucket, GitLab etc) and reading access must be given to <b>peetertarvas[at]gmail.com</b> ja <b>h.zuppur[at]gmail.com</b>. The link to the repository must also be sent to these addresses. The code will also go through a plagiarism control and the robots will be integrated to the battle environment. All plagiarised works will be revoked.',
       ],
     },
     tech: {
