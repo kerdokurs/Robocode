@@ -11,7 +11,8 @@ export const sendConfirmation = functions
     return mail
       .send({
         to: captain_email,
-        from: 'kerdo@kerdo.me',
+        from: 'noreply@robocode.mits.ee',
+        replyTo: 'kerdo.kurs@ut.ee',
         templateId: 'd-44b1bd7379a9404fb524f985957b1b85',
         dynamicTemplateData: {
           team_name,
