@@ -95,5 +95,7 @@ export default {
   archive: {
     title: 'Archive',
     livestream: 'livestream',
+    winner: 'Winner',
+    participants: 'Participants',
   },
 };

@@ -94,5 +94,7 @@ export default {
   archive: {
     title: 'Arhiiv',
     livestream: 'otseülekanne',
+    winner: 'Võitja',
+    participants: 'Osalejad',
   },
 };
