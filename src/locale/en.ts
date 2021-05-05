@@ -74,7 +74,7 @@ export default {
     participating: {
       header: 'Participating',
       rules: [
-        'The prize pool is 1000 €: 500 € for the first, 300 € for the second, and 200 € for the third place. VAT will be added to the prize.',
+        'The prize pool is 1000 €: 500 € for the first, 300 € for the second, and 200 € for the third place. Tax will be deducted from the prize.',
         'Participating teams must have 1-5 members.',
         'Each participating team must have at least one member studying in an Estonian university.',
         'Registration deadline is on the 12th of May 2021.',

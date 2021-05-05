@@ -74,7 +74,7 @@ export default {
     participating: {
       header: 'Osalemine',
       rules: [
-        'Auhinnafond on 1000 €:, 500 € esimesele, 300 € teisele ja 200 € kolmandale kohale. Auhinna rahale lisandub tulumaks.',
+        'Auhinnafond on 1000 €: 500 € esimesele, 300 € teisele ja 200 € kolmandale kohale. Auhinna rahast arvestatakse maha tulumaks.',
         'Võistlusel saab osaleda 1-5-liikmeline võistkond.',
         'Võistkonnas peab olema vähemalt üks Eesti ülikooli üliõpilane.',
         'Võistkonna osalemine tuleb registreerida hiljemalt 12. mai 2021.',
