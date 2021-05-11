@@ -57,9 +57,7 @@ async function main() {
       let data = cols.map((col) => col.title).join(',') + '\n';
 
       data += teams
-        .map((team) => {
-          return cols.map((col) => team[col.id]).join(',');
-        })
+        .map((team) => cols.map((col) => team[col.id]).join(','))
         .join('\n');
 
       fs.writeFileSync(join(__dirname, 'teams.csv'), data, {
