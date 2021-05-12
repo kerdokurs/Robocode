@@ -60,14 +60,18 @@ export default {
     submit: 'Send!',
     successful: 'You have been successfully registered!',
     be_there: 'Be sure to attend the live event!',
-    mail:
-      'We have also sent you a confirmation email. You might have to check your spam folder.',
+    mail: 'We have also sent you a confirmation email. You might have to check your spam folder.',
     error: 'Unknown error',
+    ended: {
+      header: 'Registration has ended!',
+      subheader: 'Registration for Robocode 2021 has ended.',
+      keep: 'For more news check out the',
+      event: 'Facebook event page',
+    },
   },
   guide: {
     header: 'Guide',
-    text:
-      'Here is the starting guide for Robocode 2020 which can get you off the ground this year also.',
+    text: 'Here is the starting guide for Robocode 2020 which can get you off the ground this year also.',
   },
   rules: {
     header: 'Rules',

@@ -60,21 +60,25 @@ export default {
     submit: 'Esita!',
     successful: "Oled robocode'ile edukalt registreerunud!",
     be_there: 'Ole kindlasti võistlusel kohal!',
-    mail:
-      'Saatsime sulle meilile ka kinnituse. Võib-olla pead kontrollima spämm-kausta.',
+    mail: 'Saatsime sulle meilile ka kinnituse. Võib-olla pead kontrollima spämm-kausta.',
     error: 'Tundmatu viga',
+    ended: {
+      header: 'Registreerimine on lõppenud!',
+      subheader: "Selleks aastaks on Robocode'ile registreerumine lõppenud.",
+      keep: "Jooksvate uudiste jaoks hoia silm peal Robocode'i",
+      event: 'Facebooki üritusel',
+    },
   },
   guide: {
     header: 'Juhend',
-    text:
-      "Siin on 2020. aasta Robocode'i juhend, mis aitab esimesed sammud teha ka sel aastal.",
+    text: "Siin on 2020. aasta Robocode'i juhend, mis aitab esimesed sammud teha ka sel aastal.",
   },
   rules: {
     header: 'Reeglid',
     participating: {
       header: 'Osalemine',
       rules: [
-        'Auhinnafond on 1000 €: 500 € esimesele, 300 € teisele ja 200 € kolmandale kohale. Auhinna rahast arvestatakse maha tulumaks.',
+        'Auhinnafond on 1000 €: 500 € esimesele, 300 € teisele ja 200 € kolmandale kohale. Auhinnast arvestatakse maha tulumaks.',
         'Võistlusel saab osaleda 1-5-liikmeline võistkond.',
         'Võistkonnas peab olema vähemalt üks Eesti ülikooli üliõpilane.',
         'Võistkonna osalemine tuleb registreerida hiljemalt 12. mai 2021.',

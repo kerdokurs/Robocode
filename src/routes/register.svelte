@@ -13,6 +13,10 @@
   let otherSchool = '';
   let otherSchoolHint = false;
 
+  const endDate = new Date('2021-05-12 23:59');
+
+  let ended = new Date() >= endDate;
+
   let submitted = false;
 
   const form = useForm({
@@ -45,6 +49,8 @@
   const registerCollection = firestore.collection('registered');
 
   const onSubmit = async () => {
+    if (ended) return;
+
     try {
       if (!verified) {
         captchaHint = true;
@@ -87,7 +93,25 @@
   <title>Registreeri | Robocode 2021</title>
 </svelte:head>
 
-{#if submitted && !$isLoading}
+{#if ended && !$isLoading}
+  <div>
+    <h1 class="text-4xl">{$_('register.ended.header')}</h1>
+    <p class="text-lg mt-3">
+      {$_('register.ended.subheader')}
+    </p>
+    <p class="text-lg mt-3">
+      {$_('register.ended.keep')}
+      <a
+        href="https://fb.me/e/4nLwvxJn3"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="border-b border-white"
+      >
+        {$_('register.ended.event')}
+      </a>.
+    </p>
+  </div>
+{:else if submitted && !$isLoading}
   <div in:fade>
     <h1 class="text-4xl">{$_('register.successful')}</h1>
     <p class="text-lg mt-3">{$_('register.be_there')}</p>
