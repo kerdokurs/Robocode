@@ -22,10 +22,8 @@ Skoobi lahtrisse kirjutada ...
 
 ### Sisu
 
-Päise lahtrisse kirjutada maksimaalselt lakooniline 55-tähemärgine kirjeldus, mida commit endast kujutab.
+Päisesse kirjutada lühike lakooniline kokkuvõte commitist. Selle pikkus ei tohiks ületada 50 tähemärki. Pikema tekst panna commiti kehaosasse, mille pikkus ei tohiks ületada 72 tähemärki.
 
 **NB! Sisu lõppu ei käi punkt (.)!**
-
-Pikema sisu jaoks kasutada commiti keha.
 
 Commiti näide: `git commit -m "päis" -m "keha"`.
