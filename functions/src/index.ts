@@ -8,6 +8,7 @@ export const sendConfirmation = functions
   .onCreate((snap, _ctx) => {
     const { team_name, captain_email } = snap.data();
 
+    // The Sendgrid API key is stored in the Functions config environment
     mail.setApiKey(functions.config().sg.key);
 
     // Sending an email to the captain email using the Sendgrid email API
