@@ -5,7 +5,7 @@ import * as mail from '@sendgrid/mail';
 export const sendConfirmation = functions
   .region('europe-west1')
   .firestore.document('registered/{regId}')
-  .onCreate((snap, ctx) => {
+  .onCreate((snap, _ctx) => {
     const { team_name, captain_email } = snap.data();
 
     mail.setApiKey(functions.config().sg.key);
