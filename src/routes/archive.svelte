@@ -37,6 +37,7 @@
     </p>
 
     <h2 class="text-2xl mt-4">Robocode 2019</h2>
+    <p>{$_('archive.winner')}: Agonaudid</p>
 
     <p>{$_('archive.participants')}:</p>
     <ul class="list-inside list-disc">
@@ -53,7 +54,6 @@
       <li>Teras</li>
       <li>Pitkoin</li>
       <li>Informaatiku Lollid Luuad</li>
-      <li>Agonaudid</li>
       <li>Kaherattaline</li>
       <li>Triumviraat</li>
       <li>3rida</li>
