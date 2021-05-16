@@ -3,6 +3,7 @@
   import Ask from '../lib/ask.svelte';
   import Sponsors from '../lib/sponsors.svelte';
   import { isLoading, _ } from 'svelte-i18n';
+  import Live from '../lib/live.svelte';
 </script>
 
 <svelte:head>
@@ -11,7 +12,9 @@
 
 {#if !$isLoading}
   <div class="grid grid-cols-12 gap-y-12 md:gap-y-20 gap-x-0 lg:gap-x-12">
-    <div
+    <Live />
+
+    <!-- <div
       class="block col-span-12 md:col-span-6 order-1 text-center md:text-left"
     >
       <h1 class="text-4xl leading-tight text-left">
@@ -29,7 +32,7 @@
 
     <div class="block col-span-12 lg:col-span-6 order-2">
       <img src="/img/bot.gif" alt="Robocode GIF" class="w-auto m-auto" />
-    </div>
+    </div> -->
 
     <div
       class="flex lg:block lg:py-12 col-span-12 lg:col-span-7 order-4 lg:order-3"
