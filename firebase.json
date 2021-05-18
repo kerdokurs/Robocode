@@ -13,6 +13,11 @@
         "type": 302,
         "source": "/discord",
         "destination": "https://discord.gg/7UzaHTAs"
+      },
+      {
+        "type": 302,
+        "source": "/tagasiside",
+        "destination": "https://forms.gle/RjbWiyVLFkmRQv9N8"
       }
     ]
   },
