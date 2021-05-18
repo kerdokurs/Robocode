@@ -3,6 +3,10 @@
   import { Link } from 'svelte-navigator';
 </script>
 
+<svelte:head>
+  <title>Arhiiv | Robocode 2021</title>
+</svelte:head>
+
 {#if !$isLoading}
   <div class="flex flex-col gap-1">
     <h1 class="text-4xl">{$_('archive.title')}</h1>
